@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <!-- Navigation Bar -->
+    
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="#">Hospital Logo</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -22,10 +22,10 @@
                     <a class="nav-link" href="#">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/index.html" data-toggle="pill" role="tab">Login</a>
+                    <a class="nav-link" href="/index.html">Login</a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="/register.html" data-toggle="pill" role="tab">Signup</a>
+                    <a class="nav-link active" href="/register.html" >Signup</a>
                 </li>
             </ul>
         </div>
@@ -37,11 +37,11 @@
     </div>
 
     <div class="">
-        <div id="signup-form" class="tab-pane fade">
+        <div id="signup-form">
             <div class="signup-form">
                 <h3>Sign Up</h3>
                 <form id="signupForm">
-                    <!-- Signup form fields go here -->
+                    
                     <div class="form-group">
                         <label for="fullName">Full Name</label>
                         <input type="text" class="form-control" id="fullName" placeholder="Enter full name">
@@ -60,25 +60,6 @@
                     </div>
                     <button type="button" class="btn btn-primary" onclick="register()">Sign Up</button>
                 </form>
-            </div>
-        </div>
-    </div>
-
-    <!-- Success Modals -->
-    <div class="modal fade" id="loginSuccessModal" tabindex="-1" role="dialog" aria-labelledby="loginSuccessModalLabel" aria-hidden="true">
-        <!-- Login success modal content goes here -->
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <!-- Login success modal content goes here -->
-            </div>
-        </div>
-    </div>
-
-    <div class="modal fade" id="signupSuccessModal" tabindex="-1" role="dialog" aria-labelledby="signupSuccessModalLabel" aria-hidden="true">
-        <!-- Signup success modal content goes here -->
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <!-- Signup success modal content goes here -->
             </div>
         </div>
     </div>
