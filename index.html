@@ -39,20 +39,23 @@
 
     <main id="login-form" class="login-form">
         <h3 class="text-center">Login</h3>
-        <form>
+        <form  onsubmit="return validateForm()">
             <div class="form-group">
-                <label for="usernameEmail">Username or Email</label>
-                <input type="text" class="form-control" id="usernameEmail" placeholder="Enter username or email">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" id="email" placeholder="Enter email"  onblur="emailCheck()" required>
+                <small id="emailErrorHelp" class="form-text"></small>
             </div>
             <div class="form-group">
-                <label for="password">Password</label>
-                <input type="password" class="form-control" id="password" placeholder="Enter password">
+                <label for="signinPassword">Password</label>
+                <input type="password" class="form-control" id="signinPassword" placeholder="Enter password" required>
+                <small id="passErrorHelp" class="form-text"></small>
             </div>
             <div class="form-group form-check">
                 <input type="checkbox" class="form-check-input" id="rememberMe">
                 <label class="form-check-label" for="rememberMe">Remember Me</label>
             </div>
-            <button type="button" class="btn btn-primary"  data-bs-toggle="modal" data-bs-target="#loginModal">Login</button>
+            <!-- <button type="button" class="btn btn-primary"  data-bs-toggle="modal" data-bs-target="#loginModal">Login</button> -->
+            <button type="submit" class="btn btn-primary">Login</button>
         </form>
     </main>
     <footer class="footer">
@@ -79,6 +82,41 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script>
+        function validateForm() {
+            if(!emailCheck()) return false;
+            passwordCheck();
+            if(!passwordCheck()) return false;
+            return true;
+        }
+        function emailCheck(){
+            var email = document.getElementById("email").value;
+            var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            var emailErrorHelp = document.getElementById("emailErrorHelp");
+            if (!emailRegex.test(email)) {
+                emailErrorHelp.innerHTML ="Email should be a valid email address";
+                emailErrorHelp.style.color = "red";
+                return false;
+            }
+            emailErrorHelp.innerHTML ="";
+            return true;
+        }
+        function passwordCheck(){
+            //console.log("hi");
+            var password = document.getElementById("signinPassword").value;
+            var passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+            var passErrorHelp = document.getElementById("passErrorHelp");
+            if (!passwordRegex.test(password)) {
+                passErrorHelp.innerHTML ="Wrong password";
+                passErrorHelp.style.color = "red";
+                return false;
+            }
+            passErrorHelp.innerHTML ="";
+            return true;
+        }
+        
+        
+    </script>
 </body>
 
 </html>
